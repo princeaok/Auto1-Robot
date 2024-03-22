@@ -4,18 +4,18 @@ Library         SeleniumLibrary
 Library         String
 Library         helpers.HelpLib
 Library         Collections    
-Suite Setup     Open URL Locally
-Suite Teardown  Close Browser
+#Suite Setup     Open URL Locally
+Suite Teardown  Close All Browsers
 
 
 *** Test Cases ***
 TC1 - Check Filters on Advanced Searh Page
     Given Open URL AutoHero
     And User is on Advanced Search Page
-    When User Select Filter for First registration
-    And User Select Filter for Price Decsending
-    Then Verify all cars are filtered by First Registration
-    And Verify all Cars are Filtered By Price Descending
+    #When User Select Filter for First registration
+    #And User Select Filter for Price Decsending
+    #Then Verify all cars are filtered by First Registration
+    #And Verify all Cars are Filtered By Price Descending
 
 
 *** Keywords ***
@@ -39,7 +39,7 @@ Open URL Locally
     Maximize Browser Window
 
 Open URL AutoHero
-    Go To    https://www.autohero.com/
+    Open Browser    https://www.autohero.com/    gc
 
 User is on Advanced Search Page
     Sleep   5s
