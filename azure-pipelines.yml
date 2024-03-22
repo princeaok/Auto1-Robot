@@ -35,8 +35,9 @@ jobs:
         robot --pythonpath . -x outputxunit.xml TestCases.robot
           if ($exitCode -ne 0){
             Write-Output ("[Error] Failing task since return code was {0} while expected 0." -f $exitCode)
-          } 
-          [Environment]::Exit($exitCode)
+            Write-Host "##vso[task.complete result=Failed;]Failed"
+          }
+          exit $exitCode
 
     displayName: 'Run Robot Scripts'
   - task: PublishTestResults@2
