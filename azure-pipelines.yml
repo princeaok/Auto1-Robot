@@ -33,11 +33,10 @@ jobs:
       script: |
         #Write Powershell Command
         robot --pythonpath . -x outputxunit.xml TestCases.robot
-          if ($exitCode -ne 0)
-          {
+          if ($exitCode -ne 0){
             Write-Output ("[Error] Failing task since return code was {0} while expected 0." -f $exitCode)
-          }]
-        [Environment]::Exit($exitCode)
+          } 
+          [Environment]::Exit($exitCode)
 
     displayName: 'Run Robot Scripts'
   - task: PublishTestResults@2
