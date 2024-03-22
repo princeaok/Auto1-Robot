@@ -32,7 +32,7 @@ jobs:
       targetType: 'inline'
       script: |
         #Write Powershell Command
-        robot --pythonpath . -x outputxunit.xml TestCases.robot
+        robot --pythonpath "C:\agent\_work\_tool\Python\3.7.9\x64\python.exe" -x outputxunit.xml TestCases.robot
           if ($exitCode -ne 0){
             Write-Output ("[Error] Failing task since return code was {0} while expected 0." -f $exitCode)
             Write-Host "##vso[task.complete result=Failed;]Failed"
